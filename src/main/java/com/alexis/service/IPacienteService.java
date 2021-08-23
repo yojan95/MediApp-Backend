@@ -10,5 +10,7 @@ import com.alexis.model.Paciente;
 public interface IPacienteService extends ICRUD<Paciente, Integer>{
 	
 	Page<Paciente> listarPageable(Pageable page);
+	
+	String buscarDni(String dni);
 
 }
