@@ -38,7 +38,7 @@ public class MedicoController {
 	 * ResponseEntity permite controlar
 	 * las peticiones http
 	 */
-	@PreAuthorize("@authServiceImpl.tieneAcceso('')")
+	//@PreAuthorize("@authServiceImpl.tieneAcceso('')")
 	@GetMapping
 	public ResponseEntity<List<Medico>>  listar()throws Exception{
 		return new ResponseEntity<>( service.listar(), HttpStatus.OK);
