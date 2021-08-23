@@ -1,5 +1,8 @@
 package com.alexis.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,6 +29,15 @@ public class PacienteServiceImpl extends CRUDImpl<Paciente, Integer> implements 
 	public Page<Paciente> listarPageable(Pageable page) {
 		
 		return repo.findAll(page);
+	}
+
+	@Override
+	public String buscarDni(String dni) {
+		Object obj = (Object) new Object();
+		obj = repo.buscarDni(dni);
+		String dnis = String.valueOf(obj);
+		return dnis;
+		
 	}
 
 }
