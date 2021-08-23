@@ -27,6 +27,7 @@ import com.alexis.exception.ModeloNotFoundException;
 import com.alexis.model.Paciente;
 import com.alexis.service.IPacienteService;
 
+
 @RestController
 @RequestMapping("/pacientes") //endPoint
 public class PacienteController {
@@ -42,6 +43,16 @@ public class PacienteController {
 	@GetMapping
 	public ResponseEntity<List<Paciente>>  listar()throws Exception{
 		return new ResponseEntity<>( service.listar(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/dnis/{dni}")
+	public ResponseEntity<String>  buscarDni(@PathVariable("dni") String dni)throws Exception{
+		String _dni =  service.buscarDni(dni);
+		if(_dni == null) {
+			System.out.print("no encontrado");
+		}
+		
+		return new ResponseEntity<>(service.buscarDni(dni),HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
